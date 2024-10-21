@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta name="generator" content="pandoc" />
+$for(author-meta)$
+  <meta name="author" content="$author-meta$">
+$endfor$
+$if(date-meta)$
+  <meta name="date" content="$date-meta$">
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
+$endif$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$">
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+
+  <link rel="stylesheet" href="academicons/css/academicons.min.css"/>
+$for(css)$
+  <link rel="stylesheet" href="$css$">
+$endfor$
+$if(picture)$
+  <meta property="og:image" content="$picture$">
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+$if(math)$
+$if(mathjax)$
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+$endif$
+  $math$
+$endif$
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.svg">
+</head>
+<body>
+  <header>
+    $if(picture)$
+    <img src="$picture$" alt="My picture">
+    $endif$
+    $if(author)$
+    <h1>$author$</h1>
+    $endif$
+    $if(shortbio)$
+    <h2>$shortbio$</h2>
+    $endif$
+    $if(email)$
+    <p>✉️ <code>$email$</code></p>
+    $endif$
+    <div class="icons">
+      $if(orcid)$
+      <a href="https://orcid.org/$orcid$">
+        <i class="ai ai-orcid ai-fw icon-pad-right"></i>
+        $orcid$
+      </a>
+      $endif$
+      $if(dblp)$
+      <a href="$dblp$">
+        <i class="ai ai-dblp ai-fw icon-pad-right"></i>
+        DBLP
+      </a>
+      $endif$
+      $if(hal)$
+      <a href="$hal$">
+        <i class="ai ai-hal ai-fw icon-pad-right"></i>
+        HAL
+      </a>
+      $endif$
+      $if(scholar)$
+      <a href="$scholar$">
+        <i class="ai ai-google-scholar ai-fw icon-pad-right"></i>
+        Google Scholar
+      </a>
+      $endif$
+    </div>
+  </header>
+  $if(toc)$
+  <nav>
+    $table-of-contents$
+  </nav>
+  $endif$
+  <main>
+    $for(include-before)$
+    $include-before$
+    $endfor$
+
+    $body$
+
+    $for(include-after)$
+    $include-after$
+    $endfor$
+  </main>
+</body>
+</html>
